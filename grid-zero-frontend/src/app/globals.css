@@ -1,0 +1,109 @@
+/* -----------------------------------------
+   Custom Font: Square One
+------------------------------------------ */
+@font-face {
+  font-family: 'Square One';
+  src: url('/fonts/SquareOne-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -----------------------------------------
+   Tailwind and JetBrains Mono Font
+------------------------------------------ */
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* -----------------------------------------
+   CSS Variables
+------------------------------------------ */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-primary: 'JetBrains Mono', monospace;
+  --font-square: 'Square One', monospace;
+  --neon: #00fff7;
+}
+
+/* Tailwind Theme Extension */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-primary);
+  --font-mono: var(--font-primary);
+}
+
+/* -----------------------------------------
+   Dark Theme Support
+------------------------------------------ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* -----------------------------------------
+   Base Body Styling
+------------------------------------------ */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-primary);
+  scroll-behavior: smooth;
+}
+
+/* -----------------------------------------
+   Blinking Dot Animation
+------------------------------------------ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* -----------------------------------------
+   Neon Glow Effect Utility
+------------------------------------------ */
+.shadow-green-glow {
+  box-shadow: 0 0 8px #00522c, 0 0 16px #00ff88, 0 0 24px #00ff884f;
+}
+
+/* -----------------------------------------
+   Smooth Button Hover
+------------------------------------------ */
+.btn {
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+/* -----------------------------------------
+   Glassmorphism Utility Class
+------------------------------------------ */
+.glass {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1rem;
+}
+
+/* -----------------------------------------
+   Scanline Animation
+------------------------------------------ */
+@keyframes scanlines {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: 2px;
+  }
+}
+.animate-scanlines {
+  animation: scanlines 2s linear infinite;
+}
